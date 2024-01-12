@@ -1,0 +1,128 @@
+== Objetivo ==
+Este conjunto de quatro arquivos tem o objetivo de facilitar e 
+automatizar o processo de concatenação de arquivos PDF ao mesmo
+tempo que os converte para o formato PDF/A.
+
+
+--------------------------------------------------------
+
+
+== Pré-requisitos e configuração ==
+
+1) Escolha ou crie um diretório ("pasta") de trabalho, para onde você possa
+mover ou copiar os arquivos deste procedimento de junção e conversão de PDFs
+para PDF/A.
+
+Esse diretório terá (pelo menos) dois subdiretórios, chamados "Entrada" e 
+"Saida" (sem acento).  Não é preciso se preocupar em criá-los, pois serão 
+criados automaticamente na primeira vez que você venha a tentar este 
+procedimento.  "Entrada" é onde você deve colocar os arquivos PDF que serão
+juntados e convertidos para o padrão PDF/A; "Saida" é onde o arquivo de junção
+será colocado.
+
+Se houver outros subdiretórios na mesma estrutura, não serão afetados por este
+procedimento.
+
+Assim que o arquivo "junta_e_cria_pdfa.bat" for executado pela primeira vez, 
+há uma chance alta de que você receba uma mensagem de aviso de risco de 
+segurança. Isso é normal e deixa de acontecer assim que você clica na opção 
+de obter mais informações e autoriza a execução.
+
+Essa primeira execução do arquivo batch também cria os diretórios de entrada
+e de saída.
+
+
+
+2) Copie para esse diretório os arquivos "ghost.txt", 
+"junta_e_cria_pdfa.bat", "leia-me.html" e "leia-me.txt" (este arquivo 
+que você está lendo agora).
+
+Opcionalmente, copie também o arquivo "inicie_aqui.bat"
+para dentro dos diretórios de entrada e de saída.  Sua finalidade é
+simplesmente chamar o outro arquivo batch que faz o trabalho de junção e
+conversão dos PDFs, mas pode ser mais confortável fazer o duplo-clique no
+mesmo diretório em que estão os PDFs.
+
+
+3) É necessário baixar e instalar a versão gratuita (AGPL) do programa 
+Ghostscript (https://ghostscript.com), que provavelmente poderá ser encontrada 
+em https://ghostscript.com/releases/gsdnld.html
+
+Cuidado para não baixar por engano a versão comercial ("Artifex").
+
+
+4) Anote com cuidado o caminho exato do arquivo "gs64c.exe" nos diretórios
+em que o Ghostscript foi instalado.
+
+Edite o conteúdo do arquivo "ghost.txt" para refletir esse caminho, usando a 
+mesma sintaxe do conteúdo padrão, incluindo as aspas iniciais e finais.
+
+O valor inicial ("padrão") é algo como 
+
+"D:\Program Files\gs\gs10.02.0\bin\gswin64c.exe"
+
+Em muitos computadores as únicas mudanças necessárias serão mudar a letra 
+"D" inicial para "C" e corrigir o número de versão de 10.02.0 para o da 
+versão instalada.
+
+--------------------------------------------------------
+
+
+== Forma básica de uso ==
+
+* Certifique-se de que o arquivo "ghost.txt" está devidamente atualizado.
+
+* Remova do diretório de entrada quaisquer arquivos PDF que porventura
+existam nele e que não se deseja concatenar e converter para PDF/A.
+
+* Copie para o diretório de trabalho os PDFs que se deseja concatenar e
+converter para PDF/A.
+
+* A concatenação será feita pela ordem alfabética dos nomes dos arquivos
+PDF; portanto, se for preciso, renomeie-os agora para que a ordem seja
+a desejada.
+
+* Execute o arquivo "junta_e_cria_pdfa.bat" com duplo-clique ou com o botão 
+direito do mouse.  Ou faça o mesmo no arquivo "inicie_aqui.bat" do diretório
+de entrada ou do diretório de saída; o resultado é o mesmo.
+
+Note que cada arquivo batch será percebido inicialmente como um risco de 
+segurança pelo Windows; é preciso autorizar sua execução uma única vez.
+Feita essa autorização inicial, não haverá necessidade de fazê-lo novamente
+nessa mesma cópia do arquivo batch.
+
+* Confira o conteúdo do subdiretório de saída, onde estará o arquivo da 
+concatenação.
+
+* Se desejar, renomeie-o.  Com um pouco de cuidado você pode acumular vários
+arquivos concatenados, criados separadamente, no mesmo diretório de saída.
+Ou você pode simplesmente mover ou copiar o arquivo concatenado para outro
+lugar antes de mudar seu nome.
+
+* Confira se o PDF está completo (se alcançou até o último arquivo pela
+ordem alfabética) e se é identificado como PDF/A pelo Adobe Reader.
+
+Arquivos PDF/A costumam ser mostrados com uma barra de fundo azul claro no
+topo da janela do Adobe Reader, com texto que informa que são de fato
+arquivos no formato PDF/A.
+
+== Forma alternativa de uso ==
+
+Também é possível usar o concatenador pela linha de comando do Windows,
+opcionalmente com um ou dois parâmetros.  O primeiro parâmetro deve ser
+simplesmente um caractere entre "1" e "3" (por padrão, "3"), indicando 
+uma escolha entre os subformatos PDF/A-1, PDF/A-2 e PDF/A-3.
+
+Alguns arquivos PDF podem não funcionar bem no formato PDF/A-3.  Mas quando 
+é aceito, esse formato é superior aos PDF/A-1 e PDF/A-2; também pode ser mais 
+rápido de se construir.
+
+O segundo parâmetro, também opcional, é nome do arquivo PDF final.  
+Opcionalmente pode terminar com a extensão ".pdf"; também é possível 
+iniciá-lo com um caminho absoluto ou relativo.
+
+Por padrão, o concatenador opera como se o primeiro parâmetro fosse "3" e o 
+segundo fosse um nome de arquivo no subdiretório de saída.
+
+
+--------------------------------------------------------
